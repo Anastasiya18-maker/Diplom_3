@@ -1,11 +1,13 @@
 import allure
-import time
+
 
 from web_locators.locators import MainPageLocators, OrdersPageLocators
 from web_pages.base_page import BasePage
 
 
 class MainPage(BasePage):
+
+
 
     @allure.step('Перейти в "ЛК" по кнопке "Личный кабинет"')
     def click_on_account(self):
@@ -45,14 +47,14 @@ class MainPage(BasePage):
 
     @allure.step('Получаем значение счетчика ингредиента')
     def get_count_value(self):
-        time.sleep(2)
+        self.wait_until_element_visibility(MainPageLocators.INGREDIENT_COUNTER)
         return self.get_actually_text(MainPageLocators.INGREDIENT_COUNTER)
 
     @allure.step('Добавить ингридиент в заказ')
     def add_filling_to_order(self):
         self.wait_for_element_to_be_clickable(MainPageLocators.BUN_INGREDIENT)
         self.wait_for_element_to_be_clickable(MainPageLocators.ORDER_BASKET)
-        time.sleep(2)
+
         self.drag_and_drop_on_element(MainPageLocators.BUN_INGREDIENT, MainPageLocators.ORDER_BASKET)
 
     @allure.step('Нажать на кнопку Оформить заказ')
@@ -60,8 +62,8 @@ class MainPage(BasePage):
 
 
         self.move_to_element_and_click(MainPageLocators.CREATE_ORDER_BUTTON)
-        time.sleep(self.SLEEP)
-        return True
+
+
 
     @allure.step('Проверяем, что заказ оформлен и появился идентификатор заказа')
     def check_show_window_with_order_id(self):
@@ -71,7 +73,7 @@ class MainPage(BasePage):
     @allure.step('Получение ORDER_ID')
     def get_with_order_id(self):
         self.wait_until_element_visibility(MainPageLocators.ORDER_IDENTIFICATE)
-        time.sleep(5)
+
         order_id = self.get_actually_text(MainPageLocators.ORDER_ID)
 
 
@@ -90,7 +92,6 @@ class MainPage(BasePage):
     @allure.step("Закрыть модальное окно после создания заказа")
     def click_close_modal_order(self):
         self.move_to_element_and_click(MainPageLocators.CROSS_BUTTON)
-        time.sleep(self.SLEEP)
-        return True
+
 
 

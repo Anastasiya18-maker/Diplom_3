@@ -14,7 +14,7 @@ class MainPageLocators:
     ORDER_BASKET = (By.XPATH, "//span[@class='constructor-element__text' and text()='Перетяните булочку сюда (низ)']")
     CREATE_ORDER_BUTTON = ( By.XPATH, "//button[text()='Оформить заказ']")  # кнопка "Оформить заказ"
     ORDER_IDENTIFICATE = (By.XPATH, '//p[text()="идентификатор заказа"]')  # Идентификатор заказа
-    ORDER_ID = (By.XPATH, '//*[@id="root"]/div/section/div[1]/div/h2')
+    ORDER_ID = (By.XPATH, "//h2[contains(@class, 'text_type_digits-large')]")
     LOADING_CHECK_BOX = (By.XPATH, ".//img[@alt='tick animation']")
     ORDER_STATUS_TEXT = By.XPATH, "//p[text()='Ваш заказ начали готовить']"  # Ваш заказ начали готовить попап
     ORDER_WAITING_TEXT = By.XPATH, "//p[text()='Дождитесь готовности на орбитальной станции']"
@@ -67,20 +67,14 @@ class OrdersPageLocators:
     ORDERS_LIST_TITLE = (By.XPATH, '//h1[text()="Лента заказов"]') # Заголовок "Лента заказов"
     ORDER_STRUCTURE = By.XPATH, "//p[text()='Cостав']"  # Состав
     ORDER_LINK = By.XPATH, '//*[contains(@class, "OrderHistory_link")]'  # ссылка на заказ в Ленте заказов
-    ALL_ORDERS_AT_HISTORY = (By.XPATH, '//*[@id="root"]/div/main/div/div/div/ul/li[last()]/a/div[1]/p[1]')
-    ALL_ORDERS_AT_FEED = (By.XPATH, '//*[@id="root"]/div/main/div/div/ul/li[1]/a/div[1]/p[1]')
+    ALL_ORDERS_AT_HISTORY = (By.XPATH, "//p[contains(@class, 'text_type_digits-default')]")
+    ALL_ORDERS_AT_FEED = (By.XPATH, "//p[contains(@class, 'text_type_digits-default')]")
 
     TOTAL_ORDER_COUNT = (By.XPATH, "//p[text()='Выполнено за все время:']/following-sibling::p")
     DAILY_ORDER_COUNT = (By.XPATH, "//p[text()='Выполнено за сегодня:']/following-sibling::p")
     NUMBER_IN_PROGRESS_2 = (By.XPATH, "//li[text()='Все текущие заказы готовы!']")  # Номер в разделе "В работе"
     NUMBER_IN_PROGRESS = (By.XPATH, "(//ul[contains(@class, 'OrderFeed_orderListReady__1YFem')]/li[contains(@class, 'text_type_digits-default')])[1]")
 
-class UIWorkerLocators:
-     ORDER_HISTORY = By.XPATH, "//a[text()='История заказов']"
-     USERNAME_FIELD = (By.ID, 'username')
-     PASSWORD_FIELD = (By.ID, 'password')
-     LOGIN_BUTTON = (By.ID, 'login-button')
-     ORDER_BUTTON = By.XPATH, "//button[text()='Оформить заказ']"
-     CLOSE_MODAL_BUTTON = (By.XPATH, "//button[contains(@class, 'Modal_modal__close')][1]")
+
 
 

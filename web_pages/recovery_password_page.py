@@ -1,9 +1,12 @@
 import allure
-from web_locators.locators import AuthForgotPasswordlocators, AuthLoginLocators
+from web_locators.locators import AuthForgotPasswordlocators, AuthLoginLocators, MainPageLocators
 from web_pages.base_page import BasePage
 
 
 class PasswordRecoveryPage(BasePage):
+    @allure.step('Перейти в "ЛК" по кнопке "Личный кабинет"')
+    def click_on_account(self):
+        self.move_to_element_and_click(MainPageLocators.PROFILE_BUTTON)
 
     @allure.step('Нажать на "Восстановить пароль"')
     def click_password_reset_link(self):
