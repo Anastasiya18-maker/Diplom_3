@@ -4,12 +4,12 @@ from web_pages.recovery_password_page import PasswordRecoveryPage
 
 from data.urls import Urls
 from data.user_data import PersonData
-from conftest import recovery_password
+
 
 class TestRecoveryPassword:
     @pytest.fixture
     def recovery_password_page(self):
-        recovery_password_page = PasswordRecoveryPage(recovery_password)
+        recovery_password_page = PasswordRecoveryPage(is_auth=False)
         yield recovery_password_page
         recovery_password_page.driver.quit()
 

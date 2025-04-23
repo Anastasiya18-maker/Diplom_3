@@ -2,7 +2,7 @@ import pytest
 
 from web_pages.main_page import MainPage
 import allure
-from conftest import pages
+
 
 from data.urls import Urls
 
@@ -13,7 +13,7 @@ class TestMainPage:
 
     @pytest.fixture
     def main_page(self):
-        main_page = MainPage(pages)
+        main_page = MainPage()
         yield main_page
         main_page.driver.quit()
 

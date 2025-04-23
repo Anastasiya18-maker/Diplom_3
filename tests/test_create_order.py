@@ -4,13 +4,13 @@ import pytest
 from data.urls import Urls
 from web_locators.locators import OrdersPageLocators
 
-from conftest import pages
+
 
 
 class TestCreateOrder:
     @pytest.fixture
     def main_page(self):
-        main_page = CreateOrderPage(pages)
+        main_page = CreateOrderPage()
         yield main_page
         main_page.driver.quit()
 

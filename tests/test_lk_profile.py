@@ -4,14 +4,14 @@ import pytest
 from web_pages.user_profile_page import UserProfilePage
 
 from data.urls import Urls
-from conftest import pages
+
 
 class TestLKProfile:
 
 
     @pytest.fixture
     def user_profile_page(self):
-        user_profile_page = UserProfilePage(pages)
+        user_profile_page = UserProfilePage()
         yield user_profile_page
         user_profile_page.driver.quit()
 
